@@ -1,8 +1,21 @@
+const fs = require('fs')
+const path = require('path')
+const homedir = require('os').homedir()
+
 module.exports = (api, options, rootOptions) => {
   options = Object.assign({}, options, {
     websiteName: options.website.split('-')[1],
     website: options.website.split('-')[0]
   })
+
+  if (typeof options.username === 'string') {
+    const pcuserconf = path.resolve(homedir, '.pcuserconf')
+    fs.writeFileSync(pcuserconf, JSON.stringify({
+      username: options.username,
+      password: options.password,
+      city: options.city
+    }, null, 2))
+  }
 
   if (options.includeRem) {
     api.extendPackage({

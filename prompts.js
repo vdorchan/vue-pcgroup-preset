@@ -1,17 +1,32 @@
-const prompts = [{
-  type: 'input',
-  name: 'username',
-  message: '请输入账号'
-}, {
-  type: 'password',
-  name: 'password',
-  message: '请输入密码'
-}, {
-  type: 'city',
-  name: 'city',
-  message: '所在城市（拼音首字母简写）',
-  default: 'gz'
-}]
+const fs = require('fs')
+const path = require('path')
+const homedir = require('os').homedir()
+
+const prompts = []
+
+const pcuserconf = path.resolve(homedir, '.pcuserconf')
+
+try {
+  const user = JSON.parse(fs.readFileSync(pcuserconf, 'utf-8'))
+  console.log(`${user.username}，你好`)
+} catch (error) {
+  console.log('当前用户是第一次使用，将会询问一些用户信息，这些信息将存储在用户目录下的 .pcuserconf，后续将不再询问，当信息有所变化时，可前往用户目录下修改')
+
+  prompts.push({
+    type: 'input',
+    name: 'username',
+    message: '请输入账号'
+  }, {
+    type: 'password',
+    name: 'password',
+    message: '请输入密码'
+  }, {
+    type: 'city',
+    name: 'city',
+    message: '所在城市（拼音首字母简写）',
+    default: 'gz'
+  })
+}
 
 prompts.push({
   type: 'list',
@@ -77,23 +92,22 @@ prompts.push({
   name: 'cssPreprocessor',
   type: 'list',
   message: `选择一个 css 预处理器${process.env.VUE_CLI_API_MODE ? '' : ` (${notice})(空格键选择)`}:`,
-  choices: [
-    {
-      name: '不需要',
-      value: 'css'
-    },
-    {
-      name: 'Sass/SCSS',
-      value: 'sass'
-    },
-    {
-      name: 'Less',
-      value: 'less'
-    },
-    {
-      name: 'Stylus',
-      value: 'stylus'
-    }
+  choices: [{
+    name: '不需要',
+    value: 'css'
+  },
+  {
+    name: 'Sass/SCSS',
+    value: 'sass'
+  },
+  {
+    name: 'Less',
+    value: 'less'
+  },
+  {
+    name: 'Stylus',
+    value: 'stylus'
+  }
   ]
 })
 
