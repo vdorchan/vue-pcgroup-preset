@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<!-- path: <%= svnPath %> -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta content="telephone=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=no,viewport-fit=cover"/>
+<meta content="always" name="referrer">
+
+<!-- seo 信息 -->
+<% if(website !== 'pcauto') { %>
+<title><%= pageTitle %>_<%= websiteName %>网</title>
+<meta name="keywords" content="<%= pageTitle %>专题，<%= websiteName %>专题" />
+<meta name="description" content="<%= pageTitle %>_<%= websiteName %>网" />
+
+<!-- qq传链接抓取信息 -->
+<meta itemprop="image" content="http://www1.<%= website %>.com.cn/zt/share/share_logo.jpg">
+<meta itemprop="name" content="<%= pageTitle %>_<%= websiteName %>网">
+<% } else { %>
+<title><%= pageTitle %>_<%= brand %>专题_太平洋汽车网</title>
+<meta name="keywords" content="<%= brand %>，<%= brand %>专题，太平洋汽车专题" />
+<meta name="description" content="太平洋汽车网为您提供专业权威的<%= brand %>专题报道，了解<%= brand %>汽车最新动态，更多精彩资讯内容，尽在太平洋汽车网。" />
+
+<!-- qq传链接抓取信息 -->
+<meta itemprop="image" content="http://www1.pcauto.com.cn/zt/share/share_logo.jpg">
+<meta itemprop="name" content="<%= pageTitle %>_<%= brand %>专题_太平洋汽车网"><% } %>
+
+<!-- 专题设计和制作 -->
+<meta name="Author" content="<%= pageAuthor %> <%= pageDesigner %>">
+
+<% if(isRem) { %>
+<!-- 页面适配js -->
+<script>
+(function(e,t){var i=document,n=window;var l=i.documentElement;var a,r;var d,s=document.createElement("style");var o;function m(){var i=l.getBoundingClientRect().width;if(!t){t=540}if(i>t){i=t}var n=i*100/e;s.innerHTML="html{font-size:"+n+"px;}"}a=i.querySelector('meta[name="viewport"]');r="width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=no,viewport-fit=cover";if(a){a.setAttribute("content",r)}else{a=i.createElement("meta");a.setAttribute("name","viewport");a.setAttribute("content",r);if(l.firstElementChild){l.firstElementChild.appendChild(a)}else{var c=i.createElement("div");c.appendChild(a);i.write(c.innerHTML);c=null}}m();if(l.firstElementChild){l.firstElementChild.appendChild(s)}else{var c=i.createElement("div");c.appendChild(s);i.write(c.innerHTML);c=null}n.addEventListener("resize",function(){clearTimeout(o);o=setTimeout(m,300)},false);n.addEventListener("pageshow",function(e){if(e.persisted){clearTimeout(o);o=setTimeout(m,300)}},false);if(i.readyState==="complete"){i.body.style.fontSize="16px"}else{i.addEventListener("DOMContentLoaded",function(e){i.body.style.fontSize="16px"},false)}})(750,750);
+</script>
+<% } else if(isVd) { %>
+<script>
+// 根据设计稿的宽度来传参 比如640 750 1125
+!function(a){var b,c;/Android(?:\s+|\/)(\d+\.\d+)?/.test(navigator.userAgent)?(b=parseFloat(RegExp.$1),b>2.3?(c=parseInt(window.screen.width)/a,document.write('<meta name="viewport" content="width='+a+",minimum-scale="+c+",maximum-scale="+c+', target-densitydpi=device-dpi">')):document.write('<meta name="viewport" content="width='+a+',target-densitydpi=device-dpi">')):document.write('<meta name="viewport" content="width='+a+',user-scalable=no,target-densitydpi=device-dpi,minimal-ui,viewport-fit=cover">')}(750);
+</script><% } %>
+
+<!-- 自定义样式区域 -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- 广告头 -->
+<script>if(!window._addIvyID) document.write("<scr"+"ipt src='//www.pconline.com.cn/_hux_/<%= website.replace('pc','') %>/default/index.js'><\/scr"+"ipt>");</script>
+
+<!--计数器　SSI 上线生效 S-->
+<% 
+    var counterObj = {
+        pcauto: 5909,
+        pconline: 3936,
+        pclady: 1598,
+        pcbaby: 11,
+        pchouse: 2166
+    }
+%>
+<script>
+window._common_counter_code_ = "channel=<%= counterObj[website]%>";
+window._common_counter_uuid_ = "";
+window._common_counter_from_ = "cms";// 如果是cms页面则填cms，非cms页面可为空或者忽略该参数
+<!--#include virtual="/global_ssi/<%= website %>/count/index.html"-->
+</script>
+<!--计数器　SSI 上线生效 E-->
+
+<noscript>
+<strong>We're sorry but vue-pcauto doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+</noscript>
+<div id="app"></div>
+<!-- built files will be auto injected -->
+
+<% if(includeWx) { %><!-- 微信分享 -->
+<script src="//js.3conline.com/wap/common/wxApi-ForShare.min.js" charset="utf-8"></script>
+<script>
+wxApi.init(function () {
+    var shareData = {
+        title: document.title,
+        desc: document.querySelector('meta[name=description]').content,
+        link: window.location.href,
+        imgUrl: "http://www1.<%= website %>.com.cn/zt/share/share_logo.jpg",
+        success : function(){
+            //分享成功的回调
+        }
+    };
+    wx.onMenuShareAppMessage(shareData);// 分享给朋友
+    wx.onMenuShareTimeline(shareData);// 分享到朋友圈
+    wx.onMenuShareQQ(shareData);// 分享到QQ
+    wx.onMenuShareWeibo(shareData);// 分享到微博
+});
+</script><% } %>
+
+
+<!--页面脚本区E-->
+
+<!-- 广告尾 -->
+<script>_submitIvyID();</script>
+</body>
+</html>

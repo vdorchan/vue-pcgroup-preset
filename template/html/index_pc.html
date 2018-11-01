@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html>
+<!-- path: <%= svnPath %> -->
+<head>
+<meta charset="<% if(isCms) { %>gbk<% } else { %>utf-8<% } %>" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta content="always" name="referrer">
+
+<!-- seo 信息 -->
+<% if(website !== 'pcauto') { %>
+<title><%= pageTitle %>_<%= websiteName %>网</title>
+<meta name="keywords" content="<%= pageTitle %>专题，<%= websiteName %>专题" />
+<meta name="description" content="<%= pageTitle %>_<%= websiteName %>网" />
+
+<!-- qq传链接抓取信息 -->
+<meta itemprop="image" content="http://www1.<%= website %>.com.cn/zt/share/share_logo.jpg">
+<meta itemprop="name" content="<%= pageTitle %>_<%= websiteName %>网">
+<% } else { %>
+<title><%= pageTitle %>_<%= brand %>专题_太平洋汽车网</title>
+<meta name="keywords" content="<%= brand %>，<%= brand %>专题，太平洋汽车专题" />
+<meta name="description" content="太平洋汽车网为您提供专业权威的<%= brand %>专题报道，了解<%= brand %>汽车最新动态，更多精彩资讯内容，尽在太平洋汽车网。"/>
+
+<!-- qq传链接抓取信息 -->
+<meta itemprop="image" content="http://www1.pcauto.com.cn/zt/share/share_logo.jpg">
+<meta itemprop="name" content="<%= pageTitle %>_<%= brand %>专题_太平洋汽车网"><% } %>
+
+<!-- 专题设计和制作 -->
+<meta name="Author" content="<%= pageAuthor %> <%= pageDesigner %>">
+
+<!-- 自定义样式区域 -->
+<link rel="stylesheet" href="css/style.css">
+
+<!--[if IE 6]><script>document.execCommand("BackgroundImageCache", false, true)</script><![endif]-->
+</head>
+<body>
+<!-- 广告头 -->
+<script>if(!window._addIvyID) document.write("<scr"+"ipt src='//www.pconline.com.cn/_hux_/<%= website.replace('pc','') %>/default/index.js'><\/scr"+"ipt>");</script>
+
+<!--计数器　SSI 上线生效 S-->
+<script>
+<% 
+  var counterObj = {
+      pcauto: 5909,
+      pconline: 3936,
+      pclady: 1598,
+      pcbaby: 11,
+      pchouse: 2166
+  }
+%>
+window._common_counter_code_ = "channel=<%= counterObj[website]%>";
+window._common_counter_uuid_ = "";
+window._common_counter_from_ = "<% if(isCms) { %>cms<% } %>";// 如果是cms页面则填cms，非cms页面可为空或者忽略该参数
+<!--#include virtual="/global_ssi/<%= website %>/count/index.html"-->
+</script>
+<!--计数器　SSI 上线生效 E-->
+
+<!--公共头部 SSI 上线生效 S-->
+<!--#include virtual="/global_ssi/<%= website %>/utf8/zt_navibar/index.html" -->
+<!--公共头部 SSI 上线生效 E-->
+
+<noscript>
+  <strong>We're sorry but vue-pcauto doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+</noscript>
+<div id="app"></div>
+<!-- built files will be auto injected -->
+
+<!-- 公共底部 SSI 上线生效 S -->
+<!--#include virtual="/global_ssi/<%= website %>/utf8/footer/index.html" -->
+<!-- 公共底部 SSI 上线生效 E -->
+
+<!-- 公共底部js版，本地测试时可以用，上线建议删除或注释掉 -->
+<!-- <script data-src="//www.<%= website %>.com.cn/global/footer/index.html" id="jsFoot" class=" defer" charset="gbk"></script> -->
+
+
+<!-- 广告尾 -->
+<script>_submitIvyID();</script>
+</body>
+</html>
