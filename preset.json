@@ -1,0 +1,14 @@
+{
+  "useTaobaoRegistry": true,
+  "git": false,
+  "useConfigFiles": false,
+  "plugins": {
+    "@vue/cli-plugin-babel": {},
+    "@vue/cli-plugin-eslint": {
+      "prompts": true
+    }
+  },
+  "router": true,
+  "routerHistoryMode": false,
+  "vuex": true
+}
