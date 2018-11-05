@@ -1,6 +1,6 @@
 # vue-pcgroup-preset
 
-vue-pcgroup-preset 是按照 [VUE CLI 3](https://cli.vuejs.org/zh/) 规范，以及太平洋专题的一些特点，编写的一个预设模版，配合[VUE CLI 3](https://cli.vuejs.org/zh/) 可快速开发专题。
+vue-pcgroup-preset 是按照 [VUE CLI 3](https://cli.vuejs.org/zh/) 规范，以及太平洋专题的一些特点，编写的一个预设模版，配合[VUE CLI 3](https://cli.vuejs.org/zh/) 可快速开发专题。
 
 ## 快速开始
 
