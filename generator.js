@@ -3,10 +3,16 @@ const path = require('path')
 const homedir = require('os').homedir()
 
 module.exports = (api, options, rootOptions) => {
+  for (let f of options.features) {
+    this[f] = true
+  }
+
   options = Object.assign({}, options, {
     websiteName: options.website.split('-')[1],
     website: options.website.split('-')[0]
   })
+
+  console.log(options)
 
   if (typeof options.username === 'string') {
     const pcuserconf = path.resolve(homedir, '.pcuserconf')
@@ -80,7 +86,20 @@ module.exports = (api, options, rootOptions) => {
 
     const indexFile = options.isWap ? 'html/index_wap.html' : 'html/index_pc.html'
 
+    const getStyle = () => {
+      if (options.isWap) {
+        if (options.isRem) return 'reset_rem.css'
+
+        if (options.isVd) return 'reset_vd.css'
+
+        return 'reset_rem.css'
+      } else {
+        return 'reset_pc.css'
+      }
+    }
+
     files['public/index.html'] = files[indexFile]
+    files['src/assets/reset.css'] = files[`style/${getStyle()}`]
 
     const startsExcludeEnds = (str, start, exclude) => str.startsWith(start) && !str.endsWith(exclude)
 

@@ -16,6 +16,12 @@
 <!-- qq传链接抓取信息 -->
 <meta itemprop="image" content="http://www1.<%= website %>.com.cn/zt/share/share_logo.jpg">
 <meta itemprop="name" content="<%= pageTitle %>_<%= websiteName %>网">
+
+<meta name="Alipay:title" content="<%= pageTitle %>_<%= websiteName %>网"/>
+<!--自定义图片//钱包8.6开始支持-->
+<meta name="Alipay:imgUrl" content="http://www1.pcauto.com.cn/zt/share/share_logo.jpg"/>
+<!--自定义摘要//钱包8.6开始支持-->
+<meta name="Alipay:desc" content="<%= pageTitle %>_<%= websiteName %>网"/>
 <% } else { %>
 <title><%= pageTitle %>_<%= brand %>专题_太平洋汽车网</title>
 <meta name="keywords" content="<%= brand %>，<%= brand %>专题，太平洋汽车专题" />
@@ -23,7 +29,13 @@
 
 <!-- qq传链接抓取信息 -->
 <meta itemprop="image" content="http://www1.pcauto.com.cn/zt/share/share_logo.jpg">
-<meta itemprop="name" content="<%= pageTitle %>_<%= brand %>专题_太平洋汽车网"><% } %>
+<meta itemprop="name" content="<%= pageTitle %>_<%= brand %>专题_太平洋汽车网">
+
+<meta name="Alipay:title" content="<%= pageTitle %>_<%= websiteName %>网"/>
+<!--自定义图片//钱包8.6开始支持-->
+<meta name="Alipay:imgUrl" content="http://www1.pcauto.com.cn/zt/share/share_logo.jpg"/>
+<!--自定义摘要//钱包8.6开始支持-->
+<meta name="Alipay:desc" content="太平洋汽车网为您提供专业权威的<%= brand %>专题报道，了解<%= brand %>汽车最新动态，更多精彩资讯内容，尽在太平洋汽车网。"/><% } %>
 
 <!-- 专题设计和制作 -->
 <meta name="Author" content="<%= pageAuthor %> <%= pageDesigner %>">
@@ -39,8 +51,6 @@
 !function(a){var b,c;/Android(?:\s+|\/)(\d+\.\d+)?/.test(navigator.userAgent)?(b=parseFloat(RegExp.$1),b>2.3?(c=parseInt(window.screen.width)/a,document.write('<meta name="viewport" content="width='+a+",minimum-scale="+c+",maximum-scale="+c+', target-densitydpi=device-dpi">')):document.write('<meta name="viewport" content="width='+a+',target-densitydpi=device-dpi">')):document.write('<meta name="viewport" content="width='+a+',user-scalable=no,target-densitydpi=device-dpi,minimal-ui,viewport-fit=cover">')}(750);
 </script><% } %>
 
-<!-- 自定义样式区域 -->
-<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <!-- 广告头 -->

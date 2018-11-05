@@ -8,9 +8,9 @@ const pcuserconf = path.resolve(homedir, '.pcuserconf')
 
 try {
   const user = JSON.parse(fs.readFileSync(pcuserconf, 'utf-8'))
-  console.log(`${user.username}，你好`)
+  console.log(`${user.username}，你好！`)
 } catch (error) {
-  console.log('当前用户是第一次使用，将会询问一些用户信息，这些信息将存储在用户目录下的 .pcuserconf，后续将不再询问，当信息有所变化时，可前往用户目录下修改')
+  console.log('当前用户是第一次使用，将会询问一些用户信息，这些信息将存储在用户目录下的 .pcuserconf，后续将不再询问，当信息有所变化时，可前往用户目录下修改。')
 
   prompts.push({
     type: 'input',
@@ -34,7 +34,6 @@ prompts.push({
   message: '所属平台?',
   choices: [
     'PC (utf-8)',
-    'PC (cms)',
     'WAP (rem)',
     'WAP (vd)',
     'WAP (两倍图)'
@@ -44,26 +43,21 @@ prompts.push({
   name: 'website',
   message: '所属网站?',
   choices: [{
-    name: '电脑网',
+    name: '电脑网-PConline',
     value: 'pconline-太平洋电脑'
   }, {
-    name: '汽车网',
+    name: '汽车网-PCauto',
     value: 'pcauto-太平洋汽车'
   }, {
-    name: '时尚网',
+    name: '时尚网-PClady',
     value: 'pclady-太平洋时尚'
   }, {
-    name: '亲子网',
+    name: '亲子网-PCbaby',
     value: 'pcbaby-太平洋亲子'
   }, {
-    name: '家居网',
+    name: '家居网-PChouse',
     value: 'pchouse-太平洋家居'
   }]
-}, {
-  type: 'input',
-  name: 'svnPath',
-  message: 'svn 路径？',
-  default: ''
 }, {
   type: 'input',
   name: 'brand',
@@ -84,6 +78,11 @@ prompts.push({
   name: 'pageDesigner',
   message: '设计师的名字和地区(liumenv_gz)？',
   default: 'none'
+}, {
+  type: 'input',
+  name: 'svnPath',
+  message: 'svn 路径？',
+  default: ''
 })
 
 const notice = '默认支持 PostCSS, Autoprefixer and CSS Module'

@@ -1,6 +1,5 @@
 {
   "useTaobaoRegistry": true,
-  "git": false,
   "useConfigFiles": false,
   "plugins": {
     "@vue/cli-plugin-babel": {},
