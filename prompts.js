@@ -6,8 +6,10 @@ const prompts = []
 
 const pcuserconf = path.resolve(homedir, '.pcuserconf')
 
+let user = {}
+
 try {
-  const user = JSON.parse(fs.readFileSync(pcuserconf, 'utf-8'))
+  user = JSON.parse(fs.readFileSync(pcuserconf, 'utf-8'))
   console.log(`${user.username}，你好！`)
 } catch (error) {
   console.log('当前用户是第一次使用，将会询问一些用户信息，这些信息将存储在用户目录下的 .pcuserconf，后续将不再询问，当信息有所变化时，可前往用户目录下修改。')
@@ -72,12 +74,12 @@ prompts.push({
   type: 'input',
   name: 'pageAuthor',
   message: '你的名字和地区(zhangshuaige_gz)？',
-  default: answers => answers.username && answers.city ? `${answers.username.replace(/\d/g, '')}_${answers.city}` : 'none'
+  default: answers => `${user.username || answers.username}_${user.city || answers.city}`
 }, {
   type: 'input',
   name: 'pageDesigner',
   message: '设计师的名字和地区(liumenv_gz)？',
-  default: 'none'
+  default: ''
 }, {
   type: 'input',
   name: 'svnPath',
