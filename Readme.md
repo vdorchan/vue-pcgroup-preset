@@ -13,7 +13,8 @@ npm install -g @vue/cli
 ### 安装本远程preset
 
 ```bash
-vue create --preset vdorchan/vue-pcgroup-preset my-project
+# 默认将进行 git 初始化，不需要的话可加上 no-git 选项
+vue create --preset vdorchan/vue-pcgroup-preset my-project --no-git
 ```
 
 ### 编译并进行开发，带有热加载的功能
