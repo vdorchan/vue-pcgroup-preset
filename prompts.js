@@ -125,7 +125,7 @@ prompts.push({
     const choices = []
 
     answers.isRem && choices.push({
-      name: '开启：REM         // 自动将样式文件中的 rem 转为 px',
+      name: '开启：REM         // 自动将样式文件中的 px 转为 rem',
       value: 'includeRem',
       checked: true
     })
