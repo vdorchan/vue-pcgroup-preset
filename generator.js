@@ -7,12 +7,10 @@ module.exports = (api, options, rootOptions) => {
     this[f] = true
   }
 
-  options = Object.assign({}, options, {
+  options = Object.assign(rootOptions, options, {
     websiteName: options.website.split('-')[1],
     website: options.website.split('-')[0]
   })
-
-  console.log(options)
 
   if (typeof options.username === 'string') {
     const pcuserconf = path.resolve(homedir, '.pcuserconf')
@@ -77,13 +75,16 @@ module.exports = (api, options, rootOptions) => {
     includeRem: options.includeRem
   }
 
+  const pcConfigOptions = {
+    website: options.website,
+    projectName: options.projectName
+  }
+
   // copy and render all the files with ejs
-  api.render('./template', Object.assign(htmlEjsOptions, styleEjsOptions, vueConfigOptions))
+  api.render('./template', Object.assign(htmlEjsOptions, styleEjsOptions, vueConfigOptions, pcConfigOptions))
 
   // remove unnecessary files
   api.render(files => {
-    console.log(222, Object.keys(files))
-
     const indexFile = options.isWap ? 'html/index_wap.html' : 'html/index_pc.html'
 
     const getStyle = () => {
@@ -113,7 +114,5 @@ module.exports = (api, options, rootOptions) => {
           startsExcludeEnds(path, 'src/views/', 'Index.vue')
       })
       .forEach(path => delete files[path])
-
-    console.log(Object.keys(files))
   })
 }

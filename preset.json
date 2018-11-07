@@ -9,5 +9,6 @@
   },
   "router": true,
   "routerHistoryMode": false,
-  "vuex": true
+  "vuex": true,
+  "bare": true
 }
