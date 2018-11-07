@@ -130,11 +130,6 @@ prompts.push({
       checked: true
     })
 
-    choices.push({
-      name: '开启：font spider // 分析页面中文字体并进行压缩',
-      value: 'includeFontSpider',
-      checked: false
-    })
     answers.isWap && choices.push({
       name: '开启：微信分享      // 微信自定义内容分享',
       value: 'includeWx',
