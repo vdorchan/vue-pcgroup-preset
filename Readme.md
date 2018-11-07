@@ -42,3 +42,14 @@ npm run build
   "city": "gz"
 }
 ```
+
+## 功能列表
+
+- [x] 五网模版
+- [x] rem 单位自动转换
+- [x] postcss/less/sass
+- [x] ES6/Typescript
+- [x] vue-router
+- [x] vuex
+- [x] PWA
+- [ ] 打包上传 www1 服务器
