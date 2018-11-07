@@ -49,6 +49,16 @@ module.exports = (api, options, rootOptions) => {
     dependencies: deps[options.cssPreprocessor]
   })
 
+  api.extendPackage({
+    scripts: {
+      'www1': 'node ./www1'
+    },
+    devDependencies: {
+      'archiver': '^3.0.0',
+      'pc-www1': '0.0.1'
+    }
+  })
+
   const htmlEjsOptions = {
     website: options.website,
     pageTitle: options.pageTitle,

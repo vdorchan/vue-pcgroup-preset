@@ -52,4 +52,4 @@ npm run build
 - [x] vue-router
 - [x] vuex
 - [x] PWA
-- [ ] 打包上传 www1 服务器
+- [x] 打包上传 www1 服务器
