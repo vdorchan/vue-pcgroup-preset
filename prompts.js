@@ -125,27 +125,40 @@ prompts.push({
     const choices = []
 
     answers.isRem && choices.push({
-      name: '开启：REM         // 自动将样式文件中的 px 转为 rem',
+      name: '开启：REM                   // 自动将样式文件中的 px 转为 rem',
       value: 'includeRem',
       checked: true
     })
 
+    choices.push({
+      name: '开启：axios                 // 一个基于 promise 的 HTTP 库',
+      value: 'includeAxios',
+      checked: false
+    })
+
+    choices.push({
+      name: '开启：vue-awesome-swiper    // swiper 的 vue 版',
+      value: 'includeSwiper',
+      checked: false
+    })
+
     answers.isWap && choices.push({
-      name: '开启：微信分享      // 微信自定义内容分享',
+      name: '开启：微信分享               // 微信自定义内容分享',
       value: 'includeWx',
       checked: false
     })
 
     answers.isWap && choices.push({
-      name: '开启：公共头部      // 网站公共 ssi 头部',
+      name: '开启：公共头部               // 网站公共 ssi 头部',
       value: 'includeHeader',
       checked: false
     })
     answers.isWap && choices.push({
-      name: '开启：公共底部      // 网站公共 ssi 底部',
+      name: '开启：公共底部               // 网站公共 ssi 底部',
       value: 'includeFooter',
       checked: false
     })
+
     return choices
   }
 })

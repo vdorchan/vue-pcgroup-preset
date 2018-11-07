@@ -54,6 +54,8 @@ npm run www1
 
 - [x] 五网模版
 - [x] rem 单位自动转换
+- [x] axios
+- [x] vue-awesome-swiper
 - [x] postcss/less/sass
 - [x] ES6/Typescript
 - [x] vue-router

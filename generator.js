@@ -4,8 +4,10 @@ const homedir = require('os').homedir()
 
 module.exports = (api, options, rootOptions) => {
   for (let f of options.features) {
-    this[f] = true
+    options[f] = true
   }
+
+  delete options.features
 
   options = Object.assign(rootOptions, options, {
     websiteName: options.website.split('-')[1],
@@ -21,12 +23,22 @@ module.exports = (api, options, rootOptions) => {
     }, null, 2))
   }
 
+  const dependencies = {}
+  const devDependencies = {
+    'archiver': '^3.0.0',
+    'pc-www1': '0.0.1'
+  }
+
   if (options.includeRem) {
-    api.extendPackage({
-      dependencies: {
-        'postcss-pxtorem': '^4.0.1'
-      }
-    })
+    Object.assign(devDependencies, { 'postcss-pxtorem': '^4.0.1' })
+  }
+
+  if (options.includeAxios) {
+    Object.assign(dependencies, { 'axios': '^0.18.0' })
+  }
+
+  if (options.includeSwiper) {
+    Object.assign(dependencies, { 'vue-awesome-swiper': '^3.1.3' })
   }
 
   const deps = {
@@ -45,18 +57,14 @@ module.exports = (api, options, rootOptions) => {
     css: {}
   }
 
-  api.extendPackage({
-    dependencies: deps[options.cssPreprocessor]
-  })
+  Object.assign(dependencies, deps[options.cssPreprocessor])
 
   api.extendPackage({
     scripts: {
       'www1': 'node ./www1'
     },
-    devDependencies: {
-      'archiver': '^3.0.0',
-      'pc-www1': '0.0.1'
-    }
+    dependencies,
+    devDependencies
   })
 
   const htmlEjsOptions = {
