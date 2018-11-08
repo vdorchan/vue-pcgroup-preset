@@ -74,7 +74,7 @@ prompts.push({
   type: 'input',
   name: 'pageAuthor',
   message: '你的名字和地区(zhangshuaige_gz)？',
-  default: answers => `${user.username || answers.username}_${user.city || answers.city}`
+  default: answers => `${(user.username || answers.username).replace(/\d/g, '')}_${user.city || answers.city}`
 }, {
   type: 'input',
   name: 'pageDesigner',
