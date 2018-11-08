@@ -58,6 +58,7 @@ npm run www1
 - [x] vue-awesome-swiper
 - [x] postcss/less/sass
 - [x] ES6/Typescript
+- [x] ESLint/Babel
 - [x] vue-router
 - [x] vuex
 - [x] PWA
