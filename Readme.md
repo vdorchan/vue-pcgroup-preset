@@ -1,6 +1,6 @@
 # vue-pcgroup-preset
 
-vue-pcgroup-preset 是按照 [VUE CLI 3](https://cli.vuejs.org/zh/) 规范，以及太平洋专题的一些特点，编写的一个预设模版，配合[VUE CLI 3](https://cli.vuejs.org/zh/) 可快速开发专题。
+vue-pcgroup-preset 是按照 [VUE CLI 3](https://cli.vuejs.org/zh/) 规范，以及专题的一些特点，编写的一个预设模版，配合[VUE CLI 3](https://cli.vuejs.org/zh/) 可快速开发专题。
 
 ## 快速开始
 
@@ -29,7 +29,7 @@ npm run serve
 npm run build
 ```
 
-### 打包并上传至 www1 服务器
+### 打包并上传
 
 ```bash
 npm run www1
@@ -52,7 +52,7 @@ npm run www1
 
 ## 功能列表
 
-- [x] 五网模版
+- [x] 专题模版
 - [x] rem 单位自动转换
 - [x] axios
 - [x] vue-awesome-swiper
@@ -62,4 +62,4 @@ npm run www1
 - [x] vue-router
 - [x] vuex
 - [x] PWA
-- [x] 打包上传 www1 服务器
+- [x] 打包上传
