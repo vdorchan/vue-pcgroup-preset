@@ -6,7 +6,8 @@ module.exports = {
         plugins: [
           <% if(includeRem) { %>
           require('postcss-pxtorem')({
-            rootValue: 100
+            rootValue: 100,
+            propList: ['*']
           })<% } %>
         ]
       }
