@@ -10,6 +10,7 @@ let user = {}
 
 try {
   user = JSON.parse(fs.readFileSync(pcuserconf, 'utf-8'))
+  if (!user.username || !user.password || !user.city) throw new Error()
   console.log(`${user.username}，你好！`)
 } catch (error) {
   console.log('当前用户是第一次使用，将会询问一些用户信息，这些信息将存储在用户目录下的 .pcuserconf，后续将不再询问，当信息有所变化时，可前往用户目录下修改。')
