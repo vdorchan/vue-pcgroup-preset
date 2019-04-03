@@ -18,15 +18,13 @@ module.exports = (api, options, rootOptions) => {
     const pcuserconf = path.resolve(homedir, '.pcuserconf')
     fs.writeFileSync(pcuserconf, JSON.stringify({
       username: options.username,
-      password: options.password,
       city: options.city
     }, null, 2))
   }
 
   const dependencies = {}
   const devDependencies = {
-    'archiver': '^3.0.0',
-    'pc-www1': '0.0.1'
+    'archiver': '^3.0.0'
   }
 
   if (options.includeRem) {
@@ -60,9 +58,6 @@ module.exports = (api, options, rootOptions) => {
   Object.assign(dependencies, deps[options.cssPreprocessor])
 
   api.extendPackage({
-    scripts: {
-      'www1': 'node ./www1'
-    },
     dependencies,
     devDependencies
   })

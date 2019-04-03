@@ -19,11 +19,7 @@ try {
     type: 'input',
     name: 'username',
     message: '请输入账号'
-  }, {
-    type: 'password',
-    name: 'password',
-    message: '请输入密码'
-  }, {
+  },  {
     type: 'city',
     name: 'city',
     message: '所在城市（拼音首字母简写）',
